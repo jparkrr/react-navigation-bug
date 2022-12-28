@@ -15,6 +15,7 @@ import {
   NavigationContainer,
   PathConfigMap,
   useNavigationContainerRef,
+  getPathFromState,
 } from '@react-navigation/native';
 import {
   createStackNavigator,
@@ -163,6 +164,10 @@ export default function App() {
           // iOS (bare): xcrun simctl openurl booted rne://127.0.0.1:19000/--/simple-stack
           // The first segment of the link is the the scheme + host (returned by `Linking.makeUrl`)
           prefixes: [createURL('/')],
+          getPathFromState(state, options) {
+            alert('getPathFromState');
+            return getPathFromState(state, options);
+          },
           config: {
             initialRouteName: 'Home',
             screens: SCREEN_NAMES.reduce<PathConfigMap<RootStackParamList>>(
