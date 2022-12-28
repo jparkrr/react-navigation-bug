@@ -1,12 +1,13 @@
-# Example for React Navigation
+# Repro for React Navigation
 
-If you want to run the example from the repo,
+This has been cloned from the react navigation repo. I've only added an `alert()` for `getPathFromState` in https://github.com/jparkrr/react-navigation-bug/commit/4f19c8485504bf57a08e5e1c2a39bbce1bef92a9
 
+To install and run:
 - Clone the repository and run `yarn` in the project root
-- Run `yarn example start` to start the packager
-- Follow the instructions in the terminal to open it with the [Expo Go](https://expo.dev/client) or your web browser
+- Run `yarn example web`
 
-You can also run the currently published app:
-
-- For iOS simulator & Android device with [Expo Go](https://expo.dev/client): <https://expo.dev/@react-navigation/react-navigation-example?serviceType=eas&distribution=expo-go&scheme=exp+react-navigation-example&channel=main>
-- For web: <https://react-navigation-example.netlify.com/>
+To repro the bug on web:
+- Visit http://localhost:19006/link-component/article/gandalf
+- Click the blue "GO TO /LINK-COMPONENT/MUSIC" button.
+  - The other links don't exhibit the same bug.
+- Notice that there is no getPathFromState alert, whereas all other navigations cause it.
